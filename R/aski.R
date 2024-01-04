@@ -54,7 +54,7 @@ askflex <- function(input = NULL, beforehand = "") {
   if (is.null(input)) {
     # use clipboard
     if (.Platform$OS.type == "windows") {
-      print()
+      #print("windows")
       input <- readClipboard()
       input <- paste(input, collapse = " ")
       input <- paste(beforehand, input, collapse = " ")
