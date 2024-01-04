@@ -49,7 +49,7 @@ aski <- function(input = NULL) {
 
 
 #'@export
-askflex <- function(input = NULL, beforehand = "") {
+askflex <- function(input = NULL, bhand = "") {
   beforehand <- paste(beforehand, "\n")
   if (is.null(input)) {
     # use clipboard
@@ -70,7 +70,7 @@ askflex <- function(input = NULL, beforehand = "") {
 
     }
   }else {
-    input <- paste(beforehand, input)
+    input <- paste(beforehand, input, collapse = " ")
   }
 
   messages <- env$message_short
