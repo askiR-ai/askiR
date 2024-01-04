@@ -48,5 +48,44 @@ aski <- function(input = NULL) {
 }
 
 
+#'@export
+askflex <- function(input = NULL, beforehand = "") {
+  beforehand <- paste(beforehand, "\n")
+  if (is.null(input)) {
+    # use clipboard
+    if (.Platform$OS.type == "windows") {
+      input <- readClipboard()
+      input <- paste(beforehand, input)
+    }else {
+
+      readClipboardUnix <- function() {
+        x <- pipe("pbpaste")
+        out <- paste(scan(x, what = "character", quiet=T), collapse = " ")
+        close(x)
+        out <- paste(beforehand, out)
+        return(out)
+      }
+
+      input <- readClipboardUnix()
+
+    }
+  }else {
+    input <- paste(beforehand, input)
+  }
+
+  messages <- env$message_short
+  collapsed <-  paste(input, collapse = "\n")
+  messages[[3]]$content <- collapsed
+  cat(crayon::red(input))
+
+  output <- openai::create_chat_completion(model = "gpt-3.5-turbo",
+                                           messages = messages
+  )
+  message("\n")
+  cat(crayon::green((output$choices$message.content)))
+
+}
+
+
 
 

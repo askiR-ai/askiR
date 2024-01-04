@@ -7,7 +7,7 @@ Maintainer: askiR Development <askiRintelligence@gmail.com>
 Description: Let AI help solve your error messages!
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 Imports: 
     crayon,
     openai

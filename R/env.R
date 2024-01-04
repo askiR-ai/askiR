@@ -18,3 +18,19 @@ env$message_base  = list(
     "content" = "here"
   )
 )
+
+env$message_short  = list(
+  list(
+    "role" = "system",
+    "content" = "You're name is aski, an assitant for r programming."
+  ),
+  list(
+    "role" = "assistant",
+    "content" = "Ok."
+  ),
+  list(
+    "role" = "user",
+    "content" = "here"
+  )
+)
+
